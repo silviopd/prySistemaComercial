@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f668fc8-77b1-480e-919b-41206bc221e4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fecha1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from f_listado_venta($P{fecha1},$P{fecha2},$P{tipo})
+]]>
+	</queryString>
+	<field name="numero_venta" class="java.lang.Integer"/>
+	<field name="tipo_documento" class="java.lang.String"/>
+	<field name="numero_serie" class="java.lang.Integer"/>
+	<field name="numero_documento" class="java.lang.Integer"/>
+	<field name="codigo" class="java.lang.Integer"/>
+	<field name="nombres_apellidos" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="sub_total" class="java.math.BigDecimal"/>
+	<field name="igv" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="impuesto" class="java.math.BigDecimal"/>
+	<field name="dni_usuario" class="java.lang.String"/>
+	<field name="fecha_registro" class="java.sql.Date"/>
+	<field name="hora_registro" class="java.sql.Time"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="69" uuid="c64e6aea-ea8c-45e5-bca7-cd2cd0b69720"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="34"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE VENTAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="72" height="20" uuid="7df3c6c4-77ca-4583-91ac-a68cb18c4b59"/>
+				<text><![CDATA[numero_venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="13" width="81" height="20" uuid="f092248e-987d-4401-8e8b-69d20b3dbd6f"/>
+				<text><![CDATA[tipo_documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="13" width="30" height="20" uuid="b18983c1-44b7-4b72-a908-8ecd2a7b3e55"/>
+				<text><![CDATA[serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="13" width="100" height="20" uuid="3fcbc9ff-a538-4ba1-9860-68ce46707832"/>
+				<text><![CDATA[numero_documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="13" width="100" height="20" uuid="07803459-0adf-4937-8b9b-c4a7c03260fb"/>
+				<text><![CDATA[nombres_apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="13" width="46" height="20" uuid="7fab06d1-7c7c-4d5f-bd00-af7c5f8a3720"/>
+				<text><![CDATA[sub_total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="697" y="13" width="26" height="20" uuid="d4e6b698-125e-4a28-a608-8d241d38b8fe"/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="529" y="13" width="111" height="20" uuid="9a26231c-7e84-4696-9b48-e9c9e7fa13ca"/>
+				<text><![CDATA[fecha_registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="749" y="13" width="53" height="20" uuid="034bc5e8-7863-4a4d-b3f6-1cc374e6b69c"/>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="50" height="20" uuid="fde907c1-636d-4f18-a1d1-1004775ee8e9"/>
+				<textFieldExpression><![CDATA[$F{numero_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="10" width="81" height="20" uuid="c723f091-6b36-46a3-95bd-1fd7784a7955"/>
+				<textFieldExpression><![CDATA[$F{tipo_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="10" width="30" height="20" uuid="ffe994e5-e38b-409c-a58c-f2ff1633fa8b"/>
+				<textFieldExpression><![CDATA[$F{numero_serie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="10" width="100" height="20" uuid="0c7276e9-4aa4-4732-880c-498e9ffd8ca9"/>
+				<textFieldExpression><![CDATA[$F{numero_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="10" width="192" height="20" uuid="6c018a06-acc3-42f1-a1d9-2eb45bc1a860"/>
+				<textFieldExpression><![CDATA[$F{nombres_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="10" width="46" height="20" uuid="0838da61-43ee-415f-a7d0-93a8db953269"/>
+				<textFieldExpression><![CDATA[$F{sub_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="697" y="10" width="52" height="20" uuid="ec955608-e057-4f9c-889e-9412ebfd064d"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="529" y="10" width="111" height="20" uuid="6f7f252a-8f2c-4695-a483-80ed6b264013"/>
+				<textFieldExpression><![CDATA[$F{fecha_registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="749" y="10" width="53" height="20" uuid="6ea98589-425f-43b0-9f3c-7f2cc35b0909"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
